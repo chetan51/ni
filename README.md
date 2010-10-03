@@ -118,4 +118,7 @@ module.exports = new CalculatorController();
 Let's get cracking!
 -------------------
 
-Install Ni as your would any other Node module, by copying `lib/ni.js` to your `~/.node_libraries` folder. Then, copy the `/example` directory and modify it to set up your project. Run `node app.js` in the copied directory to start the server.
+1. Get Ni by downloading the source code, or `git clone`ing the repo. 
+2. Install Ni as your would any other Node module, by copying `lib/ni.js` to your `~/.node_libraries` folder.
+3. Copy the `/example` directory and modify it to set up your project.
+4. Run `node app.js` in the copied directory to start the server.
