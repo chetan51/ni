@@ -3,7 +3,7 @@ Ni - a minimalistic Node framework that makes setting up an MVC project a breeze
 
 Ni helps you set up a well-organized project, with a file structure separated into models, views, controllers, libraries and helpers. It's intuitive and simple to use, and doesn't get in the way of using other modules and Node plugins in your project.
 
-Ni is inspired by [CodeIgniter](http://codeigniter.com/), and it's name is an abbreviation of NodeIgniter.
+Ni is inspired by [CodeIgniter](http://codeigniter.com/), and its name is an abbreviation of NodeIgniter.
 
 What's awesome about Ni?
 ---------------------------
