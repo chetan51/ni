@@ -23,7 +23,7 @@ It's as simple as telling Ni where to look for your files, and then asking it to
 		// Ready to start the server!
 	}
 
-The rest of your code now has access to all your models, views, and controllers in Ni.models, Ni.views and Ni.controllers.
+The rest of your code now has access to all your models, views, and controllers in `Ni.models`, `Ni.views` and `Ni.controllers`.
 
 Note that your controllers, models, libraries and helpers should be packaged as Node modules, and your views can be plain text or html files.
 
@@ -43,9 +43,9 @@ It parses the URL and sends the request to the correct controller function as fo
 
 	http://yourapp.com/[controller]/[function]/[argument 1]/[argument 2]/[etc]
 
-If no controller is specified (http://yourapp.com/), it loads the "home" controller's "index" function.
+If no controller is specified (`http://yourapp.com/`), it loads the `home` controller's `index` function.
 
-If no function is specified (http://yourapp.com/[controller]), it loads the [controller]'s "index" function.
+If no function is specified (http://yourapp.com/[controller]), it loads the `[controller]`'s `index` function.
 
 Can I see an example?
 ---------------------
@@ -64,16 +64,16 @@ If you have your project organized like this:
 
 You can access your stuff with:
 
-* Ni.controllers.calculator
-* Ni.views.calculator
-* Ni.models.calculator
+* `Ni.controllers.calculator`
+* `Ni.views.calculator`
+* `Ni.models.calculator`
 
-A really well-commented example is in the source code in the /example folder, check it out!
+A really well-commented example is in the source code in the `/example` folder, check it out!
 
 How would my controllers, models, libraries, helpers look?
 -------------------------------------------------------
 
-Each of those is just a Node module. For example, the calculator controller mentioned above (in the /examples folder) looks like this:
+Each of those is just a Node module. For example, the calculator controller mentioned above (in the `/example` folder) looks like this:
 
 	var CalculatorController = function() {
 		
@@ -118,4 +118,4 @@ module.exports = new CalculatorController();
 Let's get cracking!
 -------------------
 
-Install Ni as your would any other Node module, by copying lib/ni.js to your ~/.node_libraries folder. Then, copy the /example directory and modify it to set up your project. Run "node app.js" in the copied directory to start the server.
+Install Ni as your would any other Node module, by copying `lib/ni.js` to your `~/.node_libraries` folder. Then, copy the `/example` directory and modify it to set up your project. Run `node app.js` in the copied directory to start the server.
