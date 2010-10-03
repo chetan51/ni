@@ -8,7 +8,7 @@ Ni is inspired by [CodeIgniter](http://codeigniter.com/), and its name is an abb
 What's awesome about Ni?
 ---------------------------
 
-* It's packaged as a regular Node module, so you just "require" it and you're ready to go
+* It's packaged as a regular Node module, so you just `require` it and you're ready to go
 * You can use other Node modules and Connect middle-ware as you usually would; Ni does not get in the way
 * It's easy to use and loads your models, views, controllers, libraries and helpers automatically so you can just start using them everywhere
 
@@ -115,7 +115,7 @@ Each of those is just a Node module. For example, the calculator controller ment
 
 module.exports = new CalculatorController();
 
-Let's get cracking!
+Let's get crackin'!
 -------------------
 
 1. Get Ni by downloading the source code, or `git clone`ing the repo. 
