@@ -14,15 +14,9 @@
  * 	Module dependencies
  */
 
-global.Connect = require('connect');
-global.Mu = require('mu');
-global.Quip = require('quip');
-
-/*
- * 	Initialize Ni into a global object.
- */
-
-global.Ni = require('../lib/ni');
+var Connect = require('connect'),
+	Quip = require('quip'),
+	Ni = require('../lib/ni');
 
 /*
  * 	Load Ni and start the server.
@@ -37,7 +31,7 @@ Ni.boot(function() {				// Boots Ni and loads everything
 										 
 		Quip(),								// Helps in sending HTTP responses
 		
-		Ni.router,						// The Ni router automatically
+		Ni.router,							// The Ni router automatically
 											// directs requests based on URL
 											// segments to the appropriate
 											// controller functions

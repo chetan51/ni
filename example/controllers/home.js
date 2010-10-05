@@ -5,10 +5,18 @@
  *	When the root URL, /, is loaded, the index function below is called.
  */
 
+/*
+ * 	The home controller
+ */
+
 var HomeController = function() {
 	this.index = function(req, res) {
 		res.ok('Hello world!');
 	}
 };
+
+/*
+ * 	Exports the home controller
+ */
 
 module.exports = new HomeController();

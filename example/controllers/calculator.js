@@ -19,6 +19,18 @@
  *	res argument to send back a response to the browser or requester.
  */
 
+/*
+ * 	Module dependencies
+ */
+
+var Ni = require('../../lib/ni'),
+	Mu = require('mu'),
+	Quip = require('quip');
+
+/*
+ *	The calculator controller
+ */
+
 var CalculatorController = function() {
 	
 	/*
@@ -53,5 +65,9 @@ var CalculatorController = function() {
 		}
 	}
 };
+
+/*
+ * 	Exports the calculator controller
+ */
 
 module.exports = new CalculatorController();

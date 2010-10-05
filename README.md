@@ -17,7 +17,7 @@ How do I use Ni?
 
 It's as simple as telling Ni where to look for your files, and then asking it to boot:
 
-	global.Ni = require('../lib/ni');
+	var Ni = require('../lib/ni');
 	Ni.setRoot(__dirname);
 	Ni.boot(function() {
 		// Ready to start the server!
@@ -25,7 +25,7 @@ It's as simple as telling Ni where to look for your files, and then asking it to
 
 The rest of your code now has access to all your models, views, and controllers in `Ni.models`, `Ni.views` and `Ni.controllers`.
 
-Note that your controllers, models, libraries and helpers should be packaged as Node modules, and your views can be plain text or html files.
+Note that your controllers, models, libraries and helpers should be packaged as Node modules, and your views can be plain text, template (Markdown, Mustache, etc), or HTML files.
 
 You even get a router for free!
 -------------------------------
@@ -75,6 +75,10 @@ How would my controllers, models, libraries, helpers look?
 
 Each of those is just a Node module. For example, the calculator controller mentioned above (in the `/example` folder) looks like this:
 
+	var Ni = require('../../lib/ni'),
+		Mu = require('mu'),
+		Quip = require('quip');
+
 	var CalculatorController = function() {
 		
 		/*
@@ -113,7 +117,7 @@ Each of those is just a Node module. For example, the calculator controller ment
 		}
 	};
 
-module.exports = new CalculatorController();
+	module.exports = new CalculatorController();
 
 Let's get crackin'!
 -------------------
@@ -122,3 +126,5 @@ Let's get crackin'!
 2. Install Ni as your would any other Node module, by copying `lib/ni.js` to your `~/.node_libraries` folder.
 3. Copy the `/example` directory and modify it to set up your project.
 4. Run `node app.js` in the copied directory to start the server.
+
+(We'll add Ni to `npm` soon, don't trip.)
