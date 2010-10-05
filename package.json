@@ -1,0 +1,16 @@
+{
+    "name": "ni",
+    "version": "0.1.0",
+    "engines": {
+        "node" : ">=0.2.0"
+    },
+    "author": "Chetan Surpur",
+    "directories": {
+        "lib": "./lib"
+    },
+    "description": "A minimalistic Node module / framework that makes setting up an MVC project a breeze",
+    "main": "./lib/ni",
+    "dependencies": {
+      "step": ">=0.0.3"
+    }
+}
