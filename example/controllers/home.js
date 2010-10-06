@@ -8,10 +8,12 @@
 /*
  * 	The home controller
  */
+var Ni = require('../../lib/ni');
+
 
 var HomeController = function() {
 	this.index = function(req, res) {
-		res.ok('Hello world!');
+		res.ok('Hello ' + Ni.config('location') + '!');
 	}
 };
 
