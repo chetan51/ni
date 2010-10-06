@@ -23,12 +23,9 @@ var Connect = require('connect'),
  */
 
 Ni.setRoot(__dirname);			// Tells Ni where to look for the folders
+Ni.config('location', 'world');
 
 Ni.boot(function() {				// Boots Ni and loads everything
-  
-  Ni.reg('test', function () {
-    return 'world';
-  });
 	
 	var app = Connect.createServer( 	// Create server when Ni is finished
 										// booting
