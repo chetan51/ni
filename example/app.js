@@ -23,7 +23,8 @@ var Connect = require('connect'),
  */
 
 Ni.setRoot(__dirname);			// Tells Ni where to look for the folders
-Ni.config.location = 'world';
+Ni.config.location = 'world';	// Sets a custom configuration variable to use
+								// later, anywhere
 
 Ni.boot(function() {				// Boots Ni and loads everything
 	
