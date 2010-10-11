@@ -17,11 +17,11 @@ How do I use Ni?
 
 It's as simple as telling Ni where to look for your files, and then asking it to boot:
 
-	var Ni = require('../lib/ni');
-	Ni.setRoot(__dirname);
-	Ni.boot(function() {
-		// Ready to start the server!
-	}
+    var Ni = require('../lib/ni');
+    Ni.setRoot(__dirname);
+    Ni.boot(function() {
+        // Ready to start the server!
+    }
 
 The rest of your code now has access to all your models, views, and controllers in `Ni.models`, `Ni.views` and `Ni.controllers`.
 
@@ -34,14 +34,14 @@ Ni provides a router you can use with Connect to have requests sent to the appro
 
 Use it with Connect:
 
-	var app = Connect.createServer(
-		Ni.router
-		// You can add other Connect middle-ware here
-	);
+    var app = Connect.createServer(
+        Ni.router
+        // You can add other Connect middle-ware here
+    );
 
 It parses the URL and sends the request to the correct controller function as follows:
 
-	http://yourapp.com/[controller]/[function]/[argument 1]/[argument 2]/[etc]
+    http://yourapp.com/[controller]/[function]/[argument 1]/[argument 2]/[etc]
 
 If no controller is specified (`http://yourapp.com/`), it loads the `home` controller's `index` function.
 
@@ -52,15 +52,15 @@ Can I see an example?
 
 If you have your project organized like this:
 
-	/app.js
-	/controllers
-		/calculator.js
-		/home.js
-	/views
-		/calculator.html
-		/home.html
-	/models
-		/calculator.js
+    /app.js
+    /controllers
+        /calculator.js
+        /home.js
+    /views
+        /calculator.html
+        /home.html
+    /models
+        /calculator.js
 
 You can access your stuff with:
 
@@ -75,49 +75,49 @@ How would my controllers, models, libraries, helpers look?
 
 Each of those is just a Node module. For example, the calculator controller mentioned above (in the `/example` folder) looks like this:
 
-	var Ni = require('../../lib/ni'),
-		Mu = require('mu'),
-		Quip = require('quip');
+    var Ni = require('../../lib/ni'),
+        Mu = require('mu'),
+        Quip = require('quip');
 
-	var CalculatorController = function() {
-		
-		/*
-		 * 	This function is called when the URL does not indicate a function to
-		 * 	be called, so it would look like /calculator.
-		 */
+    var CalculatorController = function() {
+        
+        /*
+         *  This function is called when the URL does not indicate a function to
+         *  be called, so it would look like /calculator.
+         */
 
-		this.index = function(req, res) {
-			res.ok('Welcome to the calculator!');
-		}
+        this.index = function(req, res) {
+            res.ok('Welcome to the calculator!');
+        }
 
-		/*
-		 * 	This function is called when the URL indicates "add" as the function
-		 *	to be called, so it would look like /calculator/add.
-		 *
-		 *	For example, loading the URL /calculator/add/4/5 would call the below
-		 *  function with a = 4 and b = 5.
-		 */
-		
-		this.add = function(req, res, a, b) {
-			if (a && b) {
-				a = parseInt(a);
-				b = parseInt(b);
+        /*
+         *  This function is called when the URL indicates "add" as the function
+         *  to be called, so it would look like /calculator/add.
+         *
+         *  For example, loading the URL /calculator/add/4/5 would call the below
+         *  function with a = 4 and b = 5.
+         */
+        
+        this.add = function(req, res, a, b) {
+            if (a && b) {
+                a = parseInt(a);
+                b = parseInt(b);
 
-				var template = Ni.views.calculator.template;
-				var data = {result: a + b};
+                var template = Ni.views.calculator.template;
+                var data = {result: a + b};
 
-				var compiled = Mu.compileText(template, null);
-				compiled(data).addListener('data', function (c) {
-					res.ok(c);
-				});
-			}
-			else {
-				res.error("a and b must both be provided.");
-			}
-		}
-	};
+                var compiled = Mu.compileText(template, null);
+                compiled(data).addListener('data', function (c) {
+                    res.ok(c);
+                });
+            }
+            else {
+                res.error("a and b must both be provided.");
+            }
+        }
+    };
 
-	module.exports = new CalculatorController();
+    module.exports = new CalculatorController();
 
 How to organize your code
 -------------------------

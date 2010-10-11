@@ -13,10 +13,10 @@
     },
     "description": "A minimalistic Node module / framework that makes setting up an MVC project a breeze",
     "author": "Chetan Surpur <chetan.surpur@gmail.com>",
-	"homepage": "http://github.com/chetan51/ni",
-	"repository" :
-	{
-		"type" : "git",
-		"url" : "git@github.com:chetan51/ni.git"
-	}
+    "homepage": "http://github.com/chetan51/ni",
+    "repository" :
+    {
+        "type" : "git",
+        "url" : "git@github.com:chetan51/ni.git"
+    }
 }
