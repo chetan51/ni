@@ -21,7 +21,7 @@ It's as simple as telling Ni where to look for your files, and then asking it to
     Ni.setRoot(__dirname);
     Ni.boot(function() {
         // Ready to start the server!
-    }
+    });
 
 The rest of your code now has access to all your models, views, and controllers in `Ni.models`, `Ni.views` and `Ni.controllers`.
 
