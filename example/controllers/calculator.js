@@ -52,7 +52,7 @@ var CalculatorController = function() {
             a = parseInt(a);
             b = parseInt(b);
 
-            var template = Ni.views.calculator.template;
+            var template = Ni.view('calculator').template;
             var data = {result: a + b};
 
             var compiled = Mu.compileText(template, null);
