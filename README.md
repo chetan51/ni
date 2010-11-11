@@ -21,9 +21,9 @@ It's as simple as telling Ni where to look for your files, and then asking it to
     Ni.setRoot(__dirname);
     Ni.boot(function() {
         // Ready to start the server!
-    }
+    });
 
-The rest of your code now has access to all your models, views, and controllers in `Ni.models`, `Ni.views` and `Ni.controllers`.
+The rest of your code now has access to all your models, views, and controllers with `Ni.model('MODELNAME')`, `Ni.view('VIEWNAME')` and `Ni.controller('CONTROLLERNAME')`.
 
 Note that your controllers, models, libraries and helpers should be packaged as Node modules, and your views can be plain text, template (Markdown, Mustache, etc), or HTML files.
 
@@ -64,9 +64,9 @@ If you have your project organized like this:
 
 You can access your stuff with:
 
-* `Ni.controllers.calculator`
-* `Ni.views.calculator`
-* `Ni.models.calculator`
+* `Ni.controller('calculator')`
+* `Ni.view('calculator')`
+* `Ni.model('calculator')`
 
 A really well-commented example is in the source code in the `/example` folder, check it out!
 
@@ -103,7 +103,7 @@ Each of those is just a Node module. For example, the calculator controller ment
                 a = parseInt(a);
                 b = parseInt(b);
 
-                var template = Ni.views.calculator.template;
+                var template = Ni.view('calculator').template;
                 var data = {result: a + b};
 
                 var compiled = Mu.compileText(template, null);
