@@ -38,7 +38,7 @@ var CalculatorController = function() {
      *  be called, so it would look like /calculator.
      */
 
-    this.index = function(req, res) {
+    this.index = function(req, res, next) {
         res.ok('Welcome to the calculator!');
     }
 
