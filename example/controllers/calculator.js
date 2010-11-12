@@ -47,7 +47,7 @@ var CalculatorController = function() {
      *  to be called, so it would look like /calculator/add.
      */
     
-    this.add = function(req, res, a, b) {
+    this.add = function(req, res, next, a, b) {
         if (a && b) {
             a = parseInt(a);
             b = parseInt(b);

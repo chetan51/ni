@@ -16,7 +16,7 @@ var Ni = require('../../lib/ni');
  */
 
 var HomeController = function() {
-    this.index = function(req, res) {
+    this.index = function(req, res, next) {
         res.ok('Hello ' + Ni.config.location + '!');
     }
 };
