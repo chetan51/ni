@@ -86,7 +86,7 @@ Each of those is just a Node module. For example, the calculator controller ment
          *  be called, so it would look like /calculator.
          */
 
-        this.index = function(req, res) {
+        this.index = function(req, res, next) {
             res.ok('Welcome to the calculator!');
         }
 
@@ -98,7 +98,7 @@ Each of those is just a Node module. For example, the calculator controller ment
          *  function with a = 4 and b = 5.
          */
         
-        this.add = function(req, res, a, b) {
+        this.add = function(req, res, next, a, b) {
             if (a && b) {
                 a = parseInt(a);
                 b = parseInt(b);
