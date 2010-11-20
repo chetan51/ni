@@ -91,7 +91,9 @@ Each of those is just a Node module. For example, the calculator controller ment
          */
 
         this.index = function(req, res, next) {
+
             res.ok('Welcome to the calculator!');
+
         }
 
         /*
@@ -103,6 +105,7 @@ Each of those is just a Node module. For example, the calculator controller ment
          */
         
         this.add = function(req, res, next, a, b) {
+
             if (a && b) {
                 a = parseInt(a);
                 b = parseInt(b);
@@ -118,7 +121,9 @@ Each of those is just a Node module. For example, the calculator controller ment
             else {
                 res.error("a and b must both be provided.");
             }
+
         }
+
     };
 
     module.exports = new CalculatorController();
