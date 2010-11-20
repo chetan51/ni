@@ -9,7 +9,7 @@ What's awesome about Ni?
 ---------------------------
 
 * It's packaged as a regular Node module, so you just `require` it and you're ready to go
-* You can use other Node modules and Connect middle-ware as you usually would; Ni does not get in the way
+* You can use other Node modules and Connect middle-ware as you usually would; Ni doesn't get in the way
 * It's easy to use and loads your models, views, controllers, libraries and helpers automatically so you can just start using them everywhere
 
 How do I use Ni?
