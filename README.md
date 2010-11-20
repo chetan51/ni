@@ -70,7 +70,7 @@ You can access your stuff with:
 
 A really well-commented example is in the source code in the `/example` folder, check it out!
 
-(Note that you'll need the following to run the example in the `/example` folder: [Connect](https://github.com/senchalabs/Connect), [Quip](https://github.com/caolan/quip) and [Mu](https://github.com/raycmorgan/Mu).)
+(Note that you'll need the following to run the example in the `/example` folder: [Connect](https://github.com/senchalabs/Connect), [Quip](https://github.com/caolan/quip) and [Mu](https://github.com/raycmorgan/Mu). You get get them easily using [npm](https://github.com/isaacs/npm).)
 
 How would my controllers, models, libraries, helpers look?
 -------------------------------------------------------
