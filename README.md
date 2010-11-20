@@ -18,7 +18,9 @@ How do I use Ni?
 It's as simple as telling Ni where to look for your files, and then asking it to boot:
 
     var Ni = require('../lib/ni');
-    Ni.setRoot(__dirname);
+
+    Ni.config('root', "myapp/src");
+
     Ni.boot(function() {
         // Ready to start the server!
     });
@@ -41,9 +43,9 @@ Use it with Connect:
 
 It parses the URL and sends the request to the correct controller function as follows:
 
-    http://yourapp.com/[controller]/[function]/[argument 1]/[argument 2]/[etc]
+    http://myapp.com/[controller]/[function]/[argument 1]/[argument 2]/[etc]
 
-If no controller is specified (`http://yourapp.com/`), it loads the `home` controller's `index` function.
+If no controller is specified (`http://myapp.com/`), it loads the `home` controller's `index` function.
 
 If no function is specified (http://yourapp.com/[controller]), it loads the `[controller]`'s `index` function.
 
