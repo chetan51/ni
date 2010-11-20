@@ -39,7 +39,9 @@ var CalculatorController = function() {
      */
 
     this.index = function(req, res, next) {
+
         res.ok('Welcome to the calculator!');
+
     }
 
     /*
@@ -48,6 +50,7 @@ var CalculatorController = function() {
      */
     
     this.add = function(req, res, next, a, b) {
+
         if (a && b) {
             a = parseInt(a);
             b = parseInt(b);
@@ -63,6 +66,7 @@ var CalculatorController = function() {
         else {
             res.error("a and b must both be provided.");
         }
+
     }
 };
 

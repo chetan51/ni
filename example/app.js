@@ -42,10 +42,12 @@ Ni.boot(function() {                // Boots Ni and loads everything
                                             // function for the URL given is
                                             // found
             res.notFound('Page not found.');
+
         }
     );
     
     app.listen(3000);
 
     console.log('Application server started on port 3000');
+
 });
