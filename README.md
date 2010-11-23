@@ -9,7 +9,7 @@ What's awesome about Ni?
 ---------------------------
 
 * It's packaged as a regular Node module, so you just `require` it and you're ready to go
-* You can use other Node modules and Connect middle-ware as you usually would; Ni does not get in the way
+* You can use other Node modules and Connect middle-ware as you usually would; Ni doesn't get in the way
 * It's easy to use and loads your models, views, controllers, libraries and helpers automatically so you can just start using them everywhere
 
 How do I use Ni?
@@ -18,12 +18,14 @@ How do I use Ni?
 It's as simple as telling Ni where to look for your files, and then asking it to boot:
 
     var Ni = require('../lib/ni');
-    Ni.setRoot(__dirname);
+
+    Ni.config('root', "myapp/src");
+
     Ni.boot(function() {
         // Ready to start the server!
-    }
+    });
 
-The rest of your code now has access to all your models, views, and controllers in `Ni.models`, `Ni.views` and `Ni.controllers`.
+The rest of your code now has access to all your models, views, and controllers with `Ni.model('MODELNAME')`, `Ni.view('VIEWNAME')` and `Ni.controller('CONTROLLERNAME')`.
 
 Note that your controllers, models, libraries and helpers should be packaged as Node modules, and your views can be plain text, template (Markdown, Mustache, etc), or HTML files.
 
@@ -41,9 +43,9 @@ Use it with Connect:
 
 It parses the URL and sends the request to the correct controller function as follows:
 
-    http://yourapp.com/[controller]/[function]/[argument 1]/[argument 2]/[etc]
+    http://myapp.com/[controller]/[function]/[argument 1]/[argument 2]/[etc]
 
-If no controller is specified (`http://yourapp.com/`), it loads the `home` controller's `index` function.
+If no controller is specified (`http://myapp.com/`), it loads the `home` controller's `index` function.
 
 If no function is specified (http://yourapp.com/[controller]), it loads the `[controller]`'s `index` function.
 
@@ -64,11 +66,13 @@ If you have your project organized like this:
 
 You can access your stuff with:
 
-* `Ni.controllers.calculator`
-* `Ni.views.calculator`
-* `Ni.models.calculator`
+* `Ni.controller('calculator')`
+* `Ni.view('calculator')`
+* `Ni.model('calculator')`
 
 A really well-commented example is in the source code in the `/example` folder, check it out!
+
+(Note that you'll need the following to run the example in the `/example` folder: [Connect](https://github.com/senchalabs/Connect), [Quip](https://github.com/caolan/quip) and [Mu](https://github.com/raycmorgan/Mu). You get get them easily using [npm](https://github.com/isaacs/npm).)
 
 How would my controllers, models, libraries, helpers look?
 -------------------------------------------------------
@@ -86,8 +90,10 @@ Each of those is just a Node module. For example, the calculator controller ment
          *  be called, so it would look like /calculator.
          */
 
-        this.index = function(req, res) {
+        this.index = function(req, res, next) {
+
             res.ok('Welcome to the calculator!');
+
         }
 
         /*
@@ -98,12 +104,13 @@ Each of those is just a Node module. For example, the calculator controller ment
          *  function with a = 4 and b = 5.
          */
         
-        this.add = function(req, res, a, b) {
+        this.add = function(req, res, next, a, b) {
+
             if (a && b) {
                 a = parseInt(a);
                 b = parseInt(b);
 
-                var template = Ni.views.calculator.template;
+                var template = Ni.view('calculator').template;
                 var data = {result: a + b};
 
                 var compiled = Mu.compileText(template, null);
@@ -114,7 +121,9 @@ Each of those is just a Node module. For example, the calculator controller ment
             else {
                 res.error("a and b must both be provided.");
             }
+
         }
+
     };
 
     module.exports = new CalculatorController();

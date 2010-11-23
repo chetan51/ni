@@ -38,8 +38,10 @@ var CalculatorController = function() {
      *  be called, so it would look like /calculator.
      */
 
-    this.index = function(req, res) {
+    this.index = function(req, res, next) {
+
         res.ok('Welcome to the calculator!');
+
     }
 
     /*
@@ -47,12 +49,13 @@ var CalculatorController = function() {
      *  to be called, so it would look like /calculator/add.
      */
     
-    this.add = function(req, res, a, b) {
+    this.add = function(req, res, next, a, b) {
+
         if (a && b) {
             a = parseInt(a);
             b = parseInt(b);
 
-            var template = Ni.views.calculator.template;
+            var template = Ni.view('calculator').template;
             var data = {result: a + b};
 
             var compiled = Mu.compileText(template, null);
@@ -63,6 +66,7 @@ var CalculatorController = function() {
         else {
             res.error("a and b must both be provided.");
         }
+
     }
 };
 

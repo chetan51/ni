@@ -22,8 +22,8 @@ var Connect = require('connect'),
  *  Load Ni and start the server.
  */
 
-Ni.setRoot(__dirname);          // Tells Ni where to look for the folders
-Ni.config.location = 'world';   // Sets a custom configuration variable to use
+Ni.config('root', __dirname);   // Tells Ni where to look for the folders
+Ni.config('location', "world"); // Sets a custom configuration variable to use
                                 // later, anywhere
 
 Ni.boot(function() {                // Boots Ni and loads everything
@@ -42,10 +42,12 @@ Ni.boot(function() {                // Boots Ni and loads everything
                                             // function for the URL given is
                                             // found
             res.notFound('Page not found.');
+
         }
     );
     
     app.listen(3000);
 
     console.log('Application server started on port 3000');
+
 });
