@@ -142,3 +142,10 @@ Let's get crackin'!
 4. Run `node app.js` in the copied directory to start the server.
 
 (We'll add Ni to `npm` soon, don't trip.)
+
+Contributors
+------------
+
+A big thank you to you guys who helped (and are helping) make Ni awesome:
+
+[Moritz Peters](https://github.com/maritz)
