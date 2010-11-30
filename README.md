@@ -62,8 +62,9 @@ You can use regular expressions as well. This leads myapp.com/register to your U
 If you want to use arguments with custom routes, you can do that as well:
     Ni.addRoute(/^\/details\/([\d]+)/i, '/User/details/$1');
 
-You can also define functions to test the path. This example will add the first and second path variables. 
-Calling myapp.com/1/2 will internally redirect to use the "Number" controller and call the "positive" function, while calling myapp.com/add/1/-2 will call the "negative" function.
+You can also define functions to test the path. For example:
+Calling myapp.com/add/1/2 will internally redirect to use the "Number" controller and call the "positive" function, while calling 
+myapp.com/add/1/-2 will call the "negative" function.
 	Ni.addRoute(function(path) {
 	    var args = path.split('/'),
 	    firstNum = parseInt(args[2]),
