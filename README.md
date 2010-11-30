@@ -49,6 +49,42 @@ If no controller is specified (`http://myapp.com/`), it loads the `home` control
 
 If no function is specified (http://yourapp.com/[controller]), it loads the `[controller]`'s `index` function.
 
+You can define custom routes using Ni.addRoute(source, destination[, method]);
+
+Some examples:
+
+With this custom route calling myapp.com will internally redirect to use your News controller and call the index function on it:
+    Ni.addRoute('/', '/News/index');
+
+You can use regular expressions as well. This leads myapp.com/register to your User controller and its "register" function:
+    Ni.addRoute(/^\/register/i, '/User/register');
+
+If you want to use arguments with custom routes, you can do that as well:
+    Ni.addRoute(/^\/details\/([\d]+)/i, '/User/details/$1');
+
+You can also define functions to test the path. This example will add the first and second path variables. 
+Calling myapp.com/1/2 will internally redirect to use the "Number" controller and call the "positive" function, while calling myapp.com/add/1/-2 will call the "negative" function.
+	Ni.addRoute(function(path) {
+	    var args = path.split('/'),
+	    firstNum = parseInt(args[2]),
+	    secondNum = parseInt(args[3]),
+	    result = firstNum + secondNum;
+        if (args[1] !== 'add')
+            return false; // this leaves the path untouched and prevents this function from sucking in all other requests as well
+	    return result > 0 ? '/Number/positive' : '/Number/negative';
+	});
+
+You can limit the allowed HTTP methods by using custom routes. 
+This will internally redirect myapp.com/comment to use your "Comments" controler and its "new" function - but only if the used HTTP Method is POST or PUT:
+
+    Ni.addRoute('/comment', '/Comments/new', ['POST', 'PUT']);
+
+And this will redirect all GET requests to myapp.com/comment to use your "Comments" controllers index function.
+    Ni.addRoute('/comment', '/Comments/', 'GET');
+
+This way you can disallow methods for some routes as well:
+    Ni.addRoute('/Comments/update', '/Home/method_not_allowed', 'GET');
+
 Can I see an example?
 ---------------------
 
