@@ -172,11 +172,6 @@ Each of those is just a Node module. For example, the calculator controller ment
 
     module.exports = new CalculatorController();
 
-How to organize your code
--------------------------
-
-Coming soon.
-
 Let's get crackin'!
 -------------------
 
